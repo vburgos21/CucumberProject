@@ -20,7 +20,7 @@ public class LoginSteps {
 
 	@Given("^I open browser$")
 	public void i_open_browser() throws Throwable {
-		System.setProperty("webdriver.chrome.driver", "src/main/java/Drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "src/test/resources/Drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
@@ -29,13 +29,7 @@ public class LoginSteps {
 		System.out.println("Browser is open");
 	}
 
-	@Given("^I navigate to the FreeCRM website$")
-	public void i_navigate_to_the_FreeCRM_website() throws Throwable {
 
-		driver.get("https://www.freecrm.com/index.html");
-
-		System.out.println("Navigated to the FreeCRM");
-	}
 
 	@When("^I enter valid username and password$")
 	public void i_enter_valid_username_and_password() throws Throwable {
@@ -57,11 +51,10 @@ public class LoginSteps {
 		
 		driver.switchTo().frame(1);
 		boolean successfulLogin = driver.findElement(By.partialLinkText("Upgrade your account")).isDisplayed();
-
-		if (successfulLogin = true) {
+		Assert.assertTrue(successfulLogin);
 		System.out.println("Successful login");
 		driver.close();
-		}
+		
 
 	}
 
@@ -76,9 +69,9 @@ public class LoginSteps {
 	public void i_see_error_message() throws Throwable {
 
 		boolean UnsuccessfulLogin = driver.findElement(By.partialLinkText("Sign Up")).isDisplayed();
-		if (UnsuccessfulLogin = true) {
+		Assert.assertTrue(UnsuccessfulLogin);
 			driver.quit();
-		}
+		
 		
 	}
 
