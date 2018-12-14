@@ -53,7 +53,7 @@ public class AccountSetupSteps {
 			driver.findElement(By.name("surname")).sendKeys("Gutierrez");
 			driver.findElement(By.name("email")).sendKeys("fabi@yahoo.com");
 			driver.findElement(By.name("email_confirm")).sendKeys("fabi@yahoo.com");
-			driver.findElement(By.name("username")).sendKeys("fabi1236");
+			driver.findElement(By.name("username")).sendKeys("fabi1237");
 			driver.findElement(By.name("password")).sendKeys("Admin123");
 			driver.findElement(By.name("passwordconfirm")).sendKeys("Admin123");
 			
